@@ -1,6 +1,10 @@
-# React Native using shadow-cljs + expo + reagent + re-frame
+# React Native using shadow-cljs in 3 minutes
 
-This is an example project for developing React Native apps using `shadow-cljs`, `Expo`, `reagent`, and `re-frame`. Here follows instructiomn for getting started either using the command line or [Calva](http://github.com/BetterThanTomorrow/calva), assuming you have stuff like XCode, or whatever is the Android equivalents, installed:
+The fastest way a [ClojureScript](https://clojurescript.org/) coder can get started with React Native. *Prove me wrong.*
+
+This is an example project using: [shadow-cljs](https://github.com/thheller/shadow-cljs), [React Native](https://facebook.github.io/react-native/), [Expo](https://expo.io/), [Reagent](https://reagent-project.github.io/), and [re-frame](https://github.com/Day8/re-frame).
+
+Here follows instructiomn for getting started either using the command line or [Calva](http://github.com/BetterThanTomorrow/calva), assuming you have stuff like XCode, or whatever is the Android equivalents, installed:
 
 ## Command line
 ```sh
