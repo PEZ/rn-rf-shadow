@@ -4,6 +4,8 @@ The fastest way a [ClojureScript](https://clojurescript.org/) coder can get star
 
 This is an example project using: [shadow-cljs](https://github.com/thheller/shadow-cljs), [React Native](https://facebook.github.io/react-native/), [Expo](https://expo.io/), [Reagent](https://reagent-project.github.io/), and [re-frame](https://github.com/Day8/re-frame).
 
+<img src="./rn-rf-shadow.png" width="320" />
+
 Here follows instructiomn for getting started either using the command line or [Calva](http://github.com/BetterThanTomorrow/calva), assuming you have stuff like XCode, or whatever is the Android equivalents, installed:
 
 ## Command line
