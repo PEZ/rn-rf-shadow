@@ -1,0 +1,5 @@
+# fulcro doesn't properly type hint these since they are usually covered
+# by react externs. we are not processing any JS however so those are missing
+render
+props
+state

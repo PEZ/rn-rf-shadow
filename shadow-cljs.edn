@@ -1,0 +1,17 @@
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[reagent "0.8.1"]
+  [re-frame "0.10.6"]
+  [cider/cider-nrepl "0.21.2-SNAPSHOT"]]
+
+ :builds
+ {:app
+  {:target :react-native
+   :init-fn example.app/init
+   :output-dir "app"
+   :devtools {:autoload true
+              :preloads [shadow.expo.keep-awake]}}}}
