@@ -21,7 +21,7 @@ Open the project and some `cljs` or `edn` file. Then:
 1. Start build task **Watch CLJS** and wait for it to build the project.
 1. Start build task **Start Expo** and wait for it to fire up Expo in your browser.
    1. Start the app on your phone or in a simulator.
-   1. In the Expo settings for your app (shake or force touch with two fingers), disable Live Reloadinhg and Hot Reloading.
+   1. In the Expo settings for your app (shake or force touch with two fingers), disable Live Reloadinhg and Hot Reloading. (Don't worry, shadow-cljs will take care of that for you.)
 1. Connect Calva to the shadow-cljs app (`ctrl+alt+v c`) and choose to connect the `:app` build.
 
 
