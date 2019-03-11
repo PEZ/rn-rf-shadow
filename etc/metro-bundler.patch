@@ -1,0 +1,12 @@
+--- worker.js    2018-11-21 14:46:01.271844624 -0700
++++ worker.js    2018-11-21 14:45:52.517615272 -0700
+@@ -218,7 +218,7 @@
+     }
+
+     if (!options.transformOptions.dev) {
+-      plugins.push([constantFoldingPlugin, opts]);
++      // plugins.push([constantFoldingPlugin, opts]);
+       plugins.push([inlinePlugin, opts]);
+     }var _transformFromAstSync = transformFromAstSync(ast, "", {
+         ast: true,
+         babelrc: false,
