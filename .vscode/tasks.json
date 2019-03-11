@@ -22,6 +22,12 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "CLJS Release Build",
+            "type": "npm",
+            "script": "release",
+            "problemMatcher": []
         }
     ]
 }

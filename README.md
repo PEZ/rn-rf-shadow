@@ -1,19 +1,47 @@
-# shadow-cljs + expo + re-frame
+# React Native using shadow-cljs + expo + reagent + re-frame
 
-Example project for developing a React Native app using `shadow-cljs`, `Expo` and `re-frame`.
+This is an example project for developing React Native apps using `shadow-cljs`, `Expo`, `reagent`, and `re-frame`. Here follows instructiomn for getting started either using the command line or [Calva](http://github.com/BetterThanTomorrow/calva), assuming you have stuff like XCode, or whatever is the Android equivalents, installed:
 
-```
+## Command line
+```sh
+$ npm install -g expo-cli
 $ yarn
 $ shadow-cljs watch app
-;; wait for first compile to finish or expo gets confused
+# wait for first compile to finish or expo gets confused
 $ yarn start
-
-;; production build
-$ shadow-cljs release app
-;; no idea what to do for expo
 ```
 
-## Notes
+Then use your editor of choice to hook up the REPL and such.
+
+## Using Calva
+
+Open the project and some `cljs` or `edn` file. Then:
+
+1. In a Terminal pane, execute `npm install -g expo-cli`, then `yarn` and wait for it to finish.
+1. Start build task **Watch CLJS** and wait for it to build the project.
+1. Start build task **Start Expo** and wait for it to fire up Expo in your browser.
+   1. Start the app on your phone or in a simulator.
+   1. In the Expo settings for your app (shake or force touch with two fingers), disable Live Reloadinhg and Hot Reloading.
+1. Connect Calva to the shadow-cljs app (`ctrl+alt+v c`) and choose to connect the `:app` build.
+
+
+## Production builds
+
+A production build invloves first asking shadow-cljs to build a relase, then to ask Expo to work in Production Mode.
+
+**NB**: Currently there's a [bug in the metro bundler](https://github.com/facebook/metro/issues/291) that causes release builds to fail in Production Mode. This project includes a way to patch it (nicked from [here](https://github.com/drapanjanas/re-natal/issues/203)). Patch by executing: `patch node_modules/metro/src/JSTransformer/worker.js ./etc/metro-bundler.patch`
+
+1. Kill the watch and expo tasks.
+1. Execute `shadow-cljs release app`
+1. Start the expo task (as per above)
+   1. Enable Production mode.
+   1. Start the app.
+
+If you get complaints about [Module HMRClient is not a registered callable module](https://github.com/expo/expo/issues/916)*, you probably have **Hot reloading** enabled. Disable it and try again.
+
+## Some notes from Thomas Heller
+
+(This project is built from this example of his: https://github.com/thheller/reagent-expo)
 
 The `:app` build will create an `app/index.js`. In `release` mode that is the only file needed. In dev mode the `app` directory will contain many more `.js` files.
 
