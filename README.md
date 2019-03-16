@@ -38,7 +38,7 @@ A production build invloves first asking shadow-cljs to build a relase, then to 
 **NB**: Currently there's a [bug in the metro bundler](https://github.com/facebook/metro/issues/291) that causes release builds to fail in Production Mode. This project includes a way to patch it (nicked from [here](https://github.com/drapanjanas/re-natal/issues/203)). Patch by executing: `patch node_modules/metro/src/JSTransformer/worker.js ./etc/metro-bundler.patch`
 
 1. Kill the watch and expo tasks.
-1. Execute `shadow-cljs release app  --pseudo-names`
+1. Execute `shadow-cljs release app`
 1. Start the expo task (as per above)
    1. Enable Production mode.
    1. Start the app.
