@@ -6,9 +6,21 @@ This is an example project using: [shadow-cljs](https://github.com/thheller/shad
 
 <img src="./rn-rf-shadow.png" width="320" />
 
-Here follows instructiomn for getting started either using the command line or [Calva](http://github.com/BetterThanTomorrow/calva), assuming you have stuff like XCode, or whatever is the Android equivalents, installed:
+Here follows instructions for getting started either using [Calva](http://github.com/BetterThanTomorrow/calva) or the command line or, and assuming you have stuff like XCode, or whatever is the Android equivalents, installed:
 
-## Command line
+## Using Calva
+
+Open the project in VS Code. Then:
+
+1. In a Terminal pane, execute `npm install -g expo-cli`, then `yarn` and wait for it to finish.
+1. Start build task **Watch CLJS** and wait for it to build the project.
+1. Start build task **Start Expo** and wait for it to fire up Expo in your browser.
+   1. Start the app on your phone or in a simulator.
+   1. In the Expo settings for your app (shake or force touch with two fingers), disable Live Reloadinhg and Hot Reloading. (Don't worry, shadow-cljs will take care of hot reloading for you, in the most beautiful way.)
+1. Connect Calva to the shadow-cljs app (`ctrl+alt+c c`) and choose to connect the `:app` build.
+1. Hack away!
+
+## Or the Command line
 ```sh
 $ npm install -g expo-cli
 $ yarn
@@ -18,18 +30,6 @@ $ yarn start
 ```
 
 Then use your editor of choice to hook up the REPL and such.
-
-## Using Calva
-
-Open the project and some `cljs` or `edn` file. Then:
-
-1. In a Terminal pane, execute `npm install -g expo-cli`, then `yarn` and wait for it to finish.
-1. Start build task **Watch CLJS** and wait for it to build the project.
-1. Start build task **Start Expo** and wait for it to fire up Expo in your browser.
-   1. Start the app on your phone or in a simulator.
-   1. In the Expo settings for your app (shake or force touch with two fingers), disable Live Reloadinhg and Hot Reloading. (Don't worry, shadow-cljs will take care of that for you.)
-1. Connect Calva to the shadow-cljs app (`ctrl+alt+v c`) and choose to connect the `:app` build.
-
 
 ## Production builds
 
