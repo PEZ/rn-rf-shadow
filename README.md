@@ -14,8 +14,8 @@ Open the project in VS Code. Then:
 
 1. In a Terminal pane, execute `npm install -g expo-cli`, then `yarn` and wait for it to finish.
 1. Start build task **Watch CLJS** and wait for it to build the project.
-1. Start build task **Start Expo** and wait for it to fire up Expo in your browser.
-   1. Start the app on your phone or in a simulator.
+1. Start build task **Start Expo** and wait for it to fire up Expo DeveTools in your browser.
+   1. Start the app on your phone or in a simulator or in browser.
    1. In the Expo settings for your app (shake or force touch with two fingers), disable Live Reloadinhg and Hot Reloading. (Don't worry, shadow-cljs will take care of hot reloading for you, in the most beautiful way.)
 1. Connect Calva to the shadow-cljs app (`ctrl+alt+c c`) and choose to connect the `:app` build.
 1. Hack away!
@@ -25,15 +25,16 @@ Open the project in VS Code. Then:
 $ npm install -g expo-cli
 $ yarn
 $ shadow-cljs watch app
-# wait for first compile to finish or expo gets confused
+# wait for first compile to finish or expo gets confused 
+# on another terminal tab/window:
 $ yarn start
 ```
+This will run Expo DevTools at http://localhost:19002/
 
-## React Native Web support
-For expo-web (react-native-web):
-1. run `yarn` to install dependencies (if you have not aleady done so)
-1. run `shadow-cljs watch app` and wait for it to complete the build
-1. use one of the following to run the app:
+To run the app in browser using expo-web (react-native-web), press `w` in the same terminal after expo devtools is started.
+This should open the app automatically on your browser after the web version is built. If it does not open automatically, open http://localhost:19006/ manually on your browser.
+
+Note that you can also run the following instead of `yarn start` to run the app in browser:
    ```
    # same as expo start --web
    $ yarn web
@@ -43,9 +44,6 @@ For expo-web (react-native-web):
    # same as expo start --web-only
    $ yarn web-only
    ```
-This will run Expo DevTools at `http://localhost:19002/`
-This should also open the app automatically on your browser. If it does not open http://localhost:19006/ manually.
-
 Then use your editor of choice to hook up the REPL and such.
 
 
