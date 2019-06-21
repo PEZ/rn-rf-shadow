@@ -1,12 +1,5 @@
-{:source-paths
- ["src/dev"
-  "src/main"
-  "src/test"]
-
- :dependencies
- [[reagent "0.8.1"]
-  [re-frame "0.10.6"]
-  [cider/cider-nrepl "0.21.2-SNAPSHOT"]]
+{:deps {:aliases [:dev]}
+ :nrepl {:port 9000}
 
  :builds
  {:app
@@ -16,3 +9,4 @@
    :compiler-options {:infer-externs :auto}
    :devtools {:autoload true
               :preloads [shadow.expo.keep-awake]}}}}
+
