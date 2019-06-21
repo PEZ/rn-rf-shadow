@@ -30,12 +30,19 @@ $ yarn start
 ```
 
 ## React Native Web support
-For expo-web (react-native-web), use one of:
-```
-$ yarn start web
-# or
-$ yarn start web-only
-```
+For expo-web (react-native-web):
+1. run `yarn` to install dependencies (if you have not aleady done so)
+1. run `shadow-cljs watch app` and wait for it to complete the build
+1. use one of the following to run the app:
+   ```
+   # same as expo start --web
+   $ yarn web
+   
+   # or
+   
+   # same as expo start --web-only
+   $ yarn web-only
+   ```
 This will run Expo DevTools at `http://localhost:19002/`
 This should also open the app automatically on your browser. If it does not open http://localhost:19006/ manually.
 
