@@ -1,0 +1,11 @@
+
+{:paths ["src/main"
+         "src/test"]
+
+ :deps {reagent {:mvn/version "0.8.1"}
+        re-frame {:mvn/version "0.10.6"}}
+
+ :aliases {:dev {:extra-paths ["src/test" "src/dev"]
+                 ;:extra-deps {reagent {:mvn/version "0.8.1"}}
+                 }}}
+

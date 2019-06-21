@@ -29,7 +29,28 @@ $ shadow-cljs watch app
 $ yarn start
 ```
 
+## React Native Web support
+For expo-web (react-native-web), use one of:
+```
+$ yarn start web
+# or
+$ yarn start web-only
+```
+This will run Expo DevTools at `http://localhost:19002/`
+This should also open the app automatically on your browser. If it does not open http://localhost:19006/ manually.
+
 Then use your editor of choice to hook up the REPL and such.
+
+
+### Using clojurescript REPL
+Once the app is deployed and opened in phone/simulator/emulator/browser, connect to the nrepl on port 9000 and run the following:
+```clojure
+(shadow/nrepl-select :app)
+```
+
+```clojure
+(js/alert "Hello from Repl")
+```
 
 ## Production builds
 
