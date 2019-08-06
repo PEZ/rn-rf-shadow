@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.2.0",
-    "shadow-cljs": "^2.8.42"
+    "shadow-cljs": "^2.8.44"
   },
   "private": true
 }

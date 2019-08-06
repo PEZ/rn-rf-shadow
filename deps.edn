@@ -4,7 +4,7 @@
 
  :deps {reagent {:mvn/version "0.8.1"}
         re-frame {:mvn/version "0.10.6"}
-        thheller/shadow-cljs {:mvn/version "2.8.42"}}
+        thheller/shadow-cljs {:mvn/version "2.8.44"}}
 
  :aliases {:dev {:extra-paths ["src/test" "src/dev"]
                  ;:extra-deps {reagent {:mvn/version "0.8.1"}}
