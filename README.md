@@ -12,12 +12,16 @@ Here follows instructions for getting started either using [Calva](http://github
 
 Open the project in VS Code. Then:
 
-1. In a Terminal pane, execute `npm install -g expo-cli`, then `yarn` and wait for it to finish.
-1. Start build task **Watch CLJS** and wait for it to build the project.
-1. Start build task **Start Expo** and wait for it to fire up Expo DevTools in your browser.
+1. In a Terminal pane, execute `npm install -g expo-cli`
+1. Then `yarn` and wait for it to finish.
+1. Run the Calva command **Start a Project REPL and Connect (aka Jack-in)**
+   1. Select the project type `shadow-cljs`.
+   1. Select to start the `:app` build.
+   1. Wait for shadow to build the project.
+1. Then **Start build tas**. This will start Expo and the Metro builder. Wait for it to fire up Expo DevTools in your browser.
    1. Start the app on your phone or in a simulator or in browser.
    1. In the Expo settings for your app (shake or force touch with two fingers), disable Live Reloadinhg and Hot Reloading. (Don't worry, shadow-cljs will take care of hot reloading for you, in the most beautiful way.)
-1. Connect Calva to the shadow-cljs app (`ctrl+alt+c c`) and choose to connect the `:app` build.
+1. When the app is running in your phone/simulator the Calva CLJS REPL can be used.
 1. Hack away!
 
 ## Or the Command line
@@ -47,7 +51,7 @@ Note that you can also run the following instead of `yarn start` to run the app 
 Then use your editor of choice to hook up the REPL and such.
 
 
-### Using clojurescript REPL
+### Using ClojureScript REPL
 Once the app is deployed and opened in phone/simulator/emulator/browser, connect to the nrepl on port 9000 and run the following:
 ```clojure
 (shadow/nrepl-select :app)
