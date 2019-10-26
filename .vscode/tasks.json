@@ -4,16 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Watch CLJS",
-            "type": "npm",
-            "script": "watch-cljs",
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
             "label": "Start Expo",
             "type": "npm",
             "script": "start",

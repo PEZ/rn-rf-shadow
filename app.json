@@ -4,7 +4,7 @@
     "slug": "reagent-expo",
     "privacy": "public",
     "entryPoint": "./app/index.js",
-    "sdkVersion": "33.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",

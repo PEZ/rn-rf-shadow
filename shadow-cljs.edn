@@ -1,5 +1,4 @@
 {:deps {:aliases [:dev]}
- :nrepl {:port 9000}
 
  :builds
  {:app
@@ -7,5 +6,6 @@
    :init-fn example.app/init
    :output-dir "app"
    :compiler-options {:infer-externs :auto}
-   :devtools {:autoload true}}}}
+   :devtools {:autoload true
+              :preloads [shadow.expo.keep-awake]}}}}
 
