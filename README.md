@@ -18,7 +18,7 @@ Open the project in VS Code. Then:
    1. Select the project type `shadow-cljs`.
    1. Select to start the `:app` build.
    1. Wait for shadow to build the project.
-1. Then **Start build tas**. This will start Expo and the Metro builder. Wait for it to fire up Expo DevTools in your browser.
+1. Then **Start build task**. This will start Expo and the Metro builder. Wait for it to fire up Expo DevTools in your browser.
    1. Start the app on your phone or in a simulator or in browser.
    1. In the Expo settings for your app (shake or force touch with two fingers), disable Live Reloadinhg and Hot Reloading. (Don't worry, shadow-cljs will take care of hot reloading for you, in the most beautiful way.)
 1. When the app is running in your phone/simulator the Calva CLJS REPL can be used.
