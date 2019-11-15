@@ -75,6 +75,27 @@ A production build invloves first asking shadow-cljs to build a relase, then to 
 
 If you get complaints about [Module HMRClient is not a registered callable module](https://github.com/expo/expo/issues/916)*, you probably have **Hot reloading** enabled. Disable it and try again.
 
+## "Known good" toolchain configurations
+
+This repository provides a baseline setup for a React Native application. However newcomers may still have problems getting up in running "in 3 minutes" because of obscure dependencies on supporting tools such as the Java and Node runtimes. So while we can't definitively show every viable configuration, we can at least maintain what's known to work, especially when dependencies are bumped.
+
+Expo SDK          | 35
+----------------- | ------------------
+clojure           | 1.10.1
+clojurescript     | 1.10.520
+expo-cli          | 3.4.1
+expo              | 35.0.0
+jdk               | openjdk 1.8.0_222
+node              | 10.17.0
+re-frame          | 0.11.0-rc2
+react             | 16.9.0
+reagent           | 0.9.0-rc2
+shadow-cljs (cli) | 2.8.69
+shadow-cljs (jar) | 2.8.69
+yarn              | 1.19.1
+
+When in doubt, a script is provided in this repo (`etc/toolchain-report`) to query what versions you have. This script is NOT needed for app development, building, or releasing, but may come in handy if you're having trouble getting up and running. `toolchain-report` requires `joker`, a portable and fast dialect of clojure implemented in go. See [the joker repo on github](https://github.com/candid82/joker) for installation instructions.
+
 ## Some notes from Thomas Heller
 
 (This project is built from this example of his: https://github.com/thheller/reagent-expo)

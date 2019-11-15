@@ -1,0 +1,114 @@
+#!/Usr/bin/env joker
+
+;; Usage: toolchain-report
+;; 
+;; This tool queries a set of defined packages in your "toolchain" and
+;; reports the versions of those packages in a map.  There are no
+;; command line flags or options for this script.
+
+(ns main
+  (:require [joker.os :as os]))
+
+
+;; The "toolchain" is defined as a vector of maps that define how to
+;; query for version. We expect every tool has some command line flag
+;; that writes the version info to stdout or stderr, but each tool
+;; might format that output in some unique way. Therefore we specify a
+;; regular expression pattern that will be used to extract the version
+;; from the output.
+;;
+;; Easiest to show an example:
+;; 
+;;  {
+;;    :key :yarn                ; each tool has a unique key
+;;    :cmd ["yarn" "-v"]        ; executing this prints the version
+;;    :pattern #"(.*)\n"        ; this regexp extracts the version #
+;;    :output :out              ; :out = stdout, :err = stderr
+;;  }
+;;
+;; The default is to grab everything from stdout up to the first
+;; newline '\n', so our example can be shortened:
+;;
+;;  {:key :yarn :cmd ["yarn" "-v"]}
+;;
+
+(def toolchain
+  [
+;; operating system
+   {:key :os-name
+    :cmd ["clojure" "-e" "(System/getProperty \"os.name\")"]
+    :pattern #"\"(.*)\""}
+   {:key :os-version
+    :cmd ["clojure" "-e" "(System/getProperty \"os.version\")"]
+    :pattern #"\"(.*)\""}
+   {:key :todays-date
+    :cmd ["clojure" "-e" "(.toString (java.time.LocalDate/now))"]}
+
+;; clojure/clojurescript tools
+   {:key :clojure
+    :cmd ["clj" "-Stree"]
+    :pattern #"org.clojure/clojure\s+(.*)\n"}
+   {:key :clojurescript
+    :cmd ["clj" "-Stree"]
+    :pattern #"org.clojure/clojurescript\s+(.*)\n"}
+   {:key :shadow-cljs-jar
+    :cmd ["shadow-cljs" "info"]
+    :pattern #"jar:\s+(.*)\n"}
+   {:key :shadow-cljs-cli
+    :cmd ["shadow-cljs" "info"]
+    :pattern #"cli:\s+(.*)\n"}
+
+;; react native toolchain
+   {:key :expo-cli :cmd ["expo-cli" "-V"]}
+
+;; javascript tools
+   {:key :node :cmd ["node" "-v"]}
+   {:key :yarn :cmd ["yarn" "-v"]}
+
+;; libraries / packages
+   {:key :expo-js
+    :cmd ["yarn" "list"]
+    :pattern #"\s+expo@(.*)\n"}
+   {:key :react
+    :cmd ["yarn" "list"]
+    :pattern #"\s+react@(.*)\n"}
+   {:key :reagent
+    :cmd ["clj" "-Stree"]
+    :pattern #"reagent/reagent\s+(.*)\n"}
+   {:key :re-frame
+    :cmd ["clj" "-Stree"]
+    :pattern #"re-frame/re-frame\s+(.*)\n"}
+
+;; java jdk
+   {:key :jdk-vendor
+    :cmd ["java" "-version"]
+    :output :err
+    :pattern #"(.*)\s+version"}
+   {:key :jdk-version
+    :cmd ["java" "-version"]
+    :output :err
+    :pattern #"version\s+\"(.*)\"\n"}
+])
+
+(def sh-memoized (memoize #(apply os/sh %)))
+
+(defn check [{:keys [key cmd output pattern]
+              :or {output :out pattern #"(.*)\n"}}]
+  (let [result (try (sh-memoized cmd)
+                    (catch Error e {:success nil}))]
+    (if (:success result)
+      {key (-> (re-find pattern (output result))
+               (get 1))}
+      {key nil})))
+
+(defn print-sorted-keys [m]
+  ;; hack because joker doesn't provide sorted-map
+  (println "{")
+  (doseq [k (sort (keys m))]
+    (printf "  %s \"%s\"\n" k (k m)))
+  (println "}"))
+
+;; run all queries and print the result
+(print-sorted-keys (->> (map check toolchain)
+                        (apply merge)))
+
