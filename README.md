@@ -79,20 +79,20 @@ If you get complaints about [Module HMRClient is not a registered callable modul
 
 This repository provides a baseline setup for a React Native application. However newcomers may still have problems getting up in running "in 3 minutes" because of obscure dependencies on supporting tools such as the Java and Node runtimes. So while we can't definitively show every viable configuration, we can at least maintain what's known to work, especially when dependencies are bumped.
 
-Expo SDK          | 35
------------------ | ------------------
-clojure           | 1.10.1
-clojurescript     | 1.10.520
-expo-cli          | 3.4.1
-expo              | 35.0.0
-jdk               | openjdk 1.8.0_222
-node              | 10.17.0
-re-frame          | 0.11.0-rc2
-react             | 16.9.0
-reagent           | 0.9.0-rc2
-shadow-cljs (cli) | 2.8.69
-shadow-cljs (jar) | 2.8.69
-yarn              | 1.19.1
+Expo SDK          | 35                | 35
+----------------- | ----------------- | -----------------
+clojure           | 1.10.1            | 1.10.1
+clojurescript     | 1.10.520          | **1.10.597**
+expo-cli          | 3.4.1             | **3.9.1**
+expo              | 35.0.0            | 35.0.0
+jdk               | openjdk 1.8.0_222 | openjdk 1.8.0_222
+node              | 10.17.0           | 10.17.0
+re-frame          | 0.11.0-rc2        | **0.11.0-rc3**
+react             | 16.9.0            | 16.9.0
+reagent           | 0.9.0-rc2         | **0.9.0-rc3**
+shadow-cljs (cli) | 2.8.69            | **2.8.78**
+shadow-cljs (jar) | 2.8.69            | **2.8.78**
+yarn              | 1.19.1            | 1.19.1
 
 When in doubt, a script is provided in this repo (`etc/toolchain-report`) to query what versions you have. This script is NOT needed for app development, building, or releasing, but may come in handy if you're having trouble getting up and running. `toolchain-report` requires `joker`, a portable and fast dialect of clojure implemented in go. See [the joker repo on github](https://github.com/candid82/joker) for installation instructions.
 
