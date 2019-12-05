@@ -72,6 +72,9 @@
    {:key :react
     :cmd ["yarn" "list"]
     :pattern #"\s+react@(.*)\n"}
+   {:key :react-native
+    :cmd ["yarn" "list"]
+    :pattern #"\s+react-native@(.*)\n"}
    {:key :reagent
     :cmd ["clj" "-Stree"]
     :pattern #"reagent/reagent\s+(.*)\n"}

@@ -130,6 +130,7 @@ jdk               | openjdk 1.8.0_222 | openjdk 1.8.0_222
 node              | 10.17.0           | 10.17.0
 re-frame          | 0.11.0-rc2        | **0.11.0-rc3**
 react             | 16.9.0            | 16.9.0
+react-native      | 0.59.8            | 0.59.8
 reagent           | 0.9.0-rc2         | **0.9.0-rc3**
 shadow-cljs (cli) | 2.8.69            | **2.8.78**
 shadow-cljs (jar) | 2.8.69            | **2.8.78**
