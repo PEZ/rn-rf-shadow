@@ -11,15 +11,15 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "35.0.0",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
-    "react-native-web": "^0.11.7"
+    "expo": "^39.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-native": "^0.63.3",
+    "react-native-web": "^0.14.8"
   },
   "devDependencies": {
-    "babel-preset-expo": "^7.1.0",
-    "shadow-cljs": "^2.8.81"
+    "babel-preset-expo": "^8.3.0",
+    "shadow-cljs": "^2.11.8"
   },
   "private": true
 }
