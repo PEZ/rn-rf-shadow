@@ -14,3 +14,4 @@ pom.xml
 app/
 .cpcache
 /web-build
+.calva/output-window/
