@@ -16,44 +16,39 @@
 (defonce splash-img (js/require "../assets/shadow-cljs.png"))
 
 (def styles
-  ^js (-> {:container
-           {:flex 1
-            :backgroundColor "#fff"
-            :alignItems "center"
-            :justifyContent "center"}
-           :title
-           {:fontWeight "bold"
-            :fontSize 24
-            :color "blue"}
-           :button
-           {:fontWeight "bold"
-            :fontSize 18
-            :padding 6
-            :backgroundColor "blue"
-            :borderRadius 10}
-           :buttonText
-           {:paddingLeft 12
-            :paddingRight 12
-            :fontWeight "bold"
-            :fontSize 18
-            :color "white"}
-           :label
-           {:fontWeight "normal"
-            :fontSize 15
-            :color "blue"}}
-          (clj->js)
-          (rn/StyleSheet.create)))
+  {:container   {:flex             1
+                 :background-color :white
+                 :align-items      :center
+                 :justify-content  :center}
+   :title       {:font-weight :bold
+                 :font-size   24
+                 :color       :blue}
+   :button      {:font-weight      :bold
+                 :font-size        18
+                 :padding          6
+                 :background-color :blue
+                 :border-radius    10}
+   :button-text {:padding-left  12
+                 :padding-right 12
+                 :font-weight   :bold
+                 :font-size     18
+                 :color         :white}
+   :label       {:font-weight :normal
+                 :font-size   15
+                 :color       :blue}})
 
 (defn root []
   (let [counter (rf/subscribe [:get-counter])]
     (fn []
-      [:> rn/View {:style (.-container styles)}
-       [:> rn/Text {:style (.-title styles)} "Clicked: " @counter]
-       [:> rn/TouchableOpacity {:style (.-button styles)
+      [:> rn/View {:style (:container styles)}
+       [:> rn/Text {:style (:title styles)} "Clicked: " @counter]
+       [:> rn/TouchableOpacity {:style    (:button styles)
                                 :on-press #(rf/dispatch [:inc-counter])}
-        [:> rn/Text {:style (.-buttonText styles)} "Click me, I'll count"]]
-       [:> rn/Image {:source splash-img :style {:width 200 :height 200}}]
-       [:> rn/Text {:style (.-label styles)} "Using: shadow-cljs+expo+reagent+re-frame"]])))
+        [:> rn/Text {:style (:button-text styles)} "Click me, I'll count"]]
+       [:> rn/Image {:source splash-img
+                     :style  {:width  200
+                              :height 200}}]
+       [:> rn/Text {:style (:label styles)} "Using: shadow-cljs+expo+reagent+re-frame"]])))
 
 (defn start
   {:dev/after-load true}
