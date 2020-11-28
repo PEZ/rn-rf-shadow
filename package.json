@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "expo-cli": "4.0.2",
-    "expo": "40.0.0-beta.1",
+    "expo": "39.0.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "0.63.3",
