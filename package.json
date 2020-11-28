@@ -1,16 +1,17 @@
 {
   "main": "app/index.js",
   "scripts": {
-    "server": "shadow-cljs server",
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "web-only": "expo start --web-only",
-    "release": "shadow-cljs release app",
-    "eject": "expo eject"
+    "server": "npx shadow-cljs server",
+    "start": "npx expo start",
+    "android": "npx expo start --android",
+    "ios": "npx expo start --ios",
+    "web": "npx expo start --web",
+    "web-only": "npx expo start --web-only",
+    "release": "npx shadow-cljs release app",
+    "eject": "npx expo eject"
   },
   "dependencies": {
+    "expo-cli": "4.0.2",
     "expo": "40.0.0-beta.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",

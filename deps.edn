@@ -2,7 +2,7 @@
 {:paths ["src/main"
          "src/test"]
 
- :deps {reagent {:mvn/version "0.10.0"}
+ :deps {reagent {:mvn/version "1.0.0-alpha2"}
         re-frame {:mvn/version "1.1.2"}
         thheller/shadow-cljs {:mvn/version "2.11.8"}}
 

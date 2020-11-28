@@ -1,0 +1,13 @@
+{
+    "calva.replConnectSequences": [
+        {
+            "projectType": "shadow-cljs",
+            "cljsType": "shadow-cljs",
+            "name": "Hello RN Shadow",
+            "menuSelections": {
+                 "cljsDefaultBuild": "app",
+                 "cljsLaunchBuilds": ["app"]
+            }
+        }
+    ]
+}
