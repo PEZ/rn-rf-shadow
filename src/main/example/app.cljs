@@ -19,15 +19,18 @@
   {:container   {:flex             1
                  :background-color :white
                  :align-items      :center
-                 :justify-content  :center}
-   :title       {:font-weight :bold
-                 :font-size   24
-                 :color       :blue}
+                 :justify-content  :flex-start
+                 :padding-top      50}
+   :title       {:font-weight   :bold
+                 :font-size     24
+                 :color         :blue
+                 :margin-bottom 20}
    :button      {:font-weight      :bold
                  :font-size        18
                  :padding          6
                  :background-color :blue
-                 :border-radius    10}
+                 :border-radius    999
+                 :margin-bottom    20}
    :button-text {:padding-left  12
                  :padding-right 12
                  :font-weight   :bold
@@ -38,17 +41,15 @@
                  :color       :blue}})
 
 (defn root []
-  (let [counter (rf/subscribe [:get-counter])]
-    (fn []
-      [:> rn/View {:style (:container styles)}
-       [:> rn/Text {:style (:title styles)} "Clicked: " @counter]
-       [:> rn/TouchableOpacity {:style    (:button styles)
-                                :on-press #(rf/dispatch [:inc-counter])}
-        [:> rn/Text {:style (:button-text styles)} "Click me, I'll count"]]
-       [:> rn/Image {:source splash-img
-                     :style  {:width  200
-                              :height 200}}]
-       [:> rn/Text {:style (:label styles)} "Using: shadow-cljs+expo+reagent+re-frame"]])))
+  [:> rn/View {:style (:container styles)}
+   [:> rn/Text {:style (:title styles)} "Clicked: " @(rf/subscribe [:get-counter])]
+   [:> rn/TouchableOpacity {:style    (:button styles)
+                            :on-press #(rf/dispatch [:inc-counter])}
+    [:> rn/Text {:style (:button-text styles)} "Click me, I'll count"]]
+   [:> rn/Image {:source splash-img
+                 :style  {:width  200
+                          :height 200}}]
+   [:> rn/Text {:style (:label styles)} "Using: shadow-cljs+expo+reagent+re-frame"]])
 
 (defn start
   {:dev/after-load true}
@@ -58,4 +59,3 @@
 (defn init []
   (rf/dispatch-sync [:initialize-db])
   (start))
-
