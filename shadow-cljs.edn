@@ -1,11 +1,15 @@
-{:deps {:aliases [:dev]}
-
- :builds
- {:app
-  {:target :react-native
-   :init-fn example.app/init
-   :output-dir "app"
-   :compiler-options {:infer-externs :auto}
-   :devtools {:autoload true
-              :preloads [shadow.expo.keep-awake]}}}}
-
+{;:deps {:aliases [:dev]} ; In a real app consider using `deps.edn` instead.
+ 
+ ; If you use deps, remove `:source-paths` and `:dependencies` from this file
+ :source-paths ["src/main"
+                "src/test"]
+ 
+ :dependencies [[reagent "1.0.0-alpha2"]
+                [re-frame "1.1.2"]]
+ 
+ :builds       {:app {:target           :react-native
+                      :init-fn          example.app/init
+                      :output-dir       "app"
+                      :compiler-options {:infer-externs :auto}
+                      :devtools         {:autoload true
+                                         :preloads [shadow.expo.keep-awake]}}}}
