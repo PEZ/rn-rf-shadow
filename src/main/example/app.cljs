@@ -1,8 +1,6 @@
 (ns example.app
   (:require
-   ["expo" :as ex]
    ["react-native" :as rn]
-   ["react" :as react]
    [reagent.core :as r]
    [re-frame.core :as rf]
    [shadow.expo :as expo]
