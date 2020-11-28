@@ -11,7 +11,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "39.0.5",
+    "expo": "40.0.0-beta.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "0.63.3",
