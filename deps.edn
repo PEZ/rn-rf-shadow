@@ -1,4 +1,6 @@
-
+; This file is not used by the default `shadow-cljs.end` config.
+; But in a real project, you probably want to use deps.
+; Do so by enabling the `:deps` config in `shadow-cljs.edn`.
 {:paths ["src/main"
          "src/test"]
 
