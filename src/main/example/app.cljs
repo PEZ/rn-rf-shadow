@@ -19,7 +19,7 @@
                  :align-items      :center
                  :justify-content  :flex-start
                  :padding-top      50}
-   :title       {:font-weight   :bold
+   :counter     {:font-weight   :bold
                  :font-size     24
                  :color         :blue
                  :margin-bottom 20}
@@ -34,20 +34,21 @@
                  :font-weight   :bold
                  :font-size     18
                  :color         :white}
-   :label       {:font-weight :normal
+   :logo        {:width  200
+                 :height 200}
+   :creds       {:font-weight :normal
                  :font-size   15
                  :color       :blue}})
 
 (defn root []
   [:> rn/View {:style (:container styles)}
-   [:> rn/Text {:style (:title styles)} "Clicked: " @(rf/subscribe [:get-counter])]
+   [:> rn/Text {:style (:counter styles)} "Clicked: " @(rf/subscribe [:get-counter])]
    [:> rn/TouchableOpacity {:style    (:button styles)
                             :on-press #(rf/dispatch [:inc-counter])}
     [:> rn/Text {:style (:button-text styles)} "Click me, I'll count"]]
-   [:> rn/Image {:source splash-img
-                 :style  {:width  200
-                          :height 200}}]
-   [:> rn/Text {:style (:label styles)} "Using: shadow-cljs+expo+reagent+re-frame"]])
+   [:> rn/Image {:style  (:logo styles)
+                 :source splash-img}]
+   [:> rn/Text {:style (:creds styles)} "Using: shadow-cljs+expo+reagent+re-frame"]])
 
 (defn start
   {:dev/after-load true}
