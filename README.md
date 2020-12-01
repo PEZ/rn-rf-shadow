@@ -89,7 +89,7 @@ Open Emacs and a bash shell:
 ## Or the Command line
 ```sh
 $ npm i
-$ shadow-cljs watch app
+$ npx shadow-cljs watch app
 # wait for first compile to finish or expo gets confused 
 # on another terminal tab/window:
 $ npm start
