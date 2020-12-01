@@ -111,7 +111,6 @@ Note that you can also run the following instead of `yarn start` to run the app 
    ```
 Then use your editor of choice to hook up the REPL and such.
 
-
 ### Using ClojureScript REPL
 Once the app is deployed and opened in phone/simulator/emulator/browser, connect to the nrepl on port 9000 and run the following:
 ```clojure
@@ -120,6 +119,14 @@ Once the app is deployed and opened in phone/simulator/emulator/browser, connect
 
 ```clojure
 (js/alert "Hello from Repl")
+```
+
+### Command line REPL
+
+To start a repl that runs on the command line and that is connected to your running app, run the following:
+
+```bash
+$ npx shadow-cljs cljs-repl :app
 ```
 
 ## Production builds
