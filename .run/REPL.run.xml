@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="REPL" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+    <module name="rn-rf-shadow" />
+    <setting name="host" value="" />
+    <setting name="port" value="0" />
+    <setting name="replType" value="NREPL" />
+    <setting name="configType" value="PORT_FILE" />
+    <setting name="replPortFileType" value="STANDARD" />
+    <setting name="customPortFile" value="" />
+    <setting name="fixLineNumbers" value="false" />
+    <method v="2" />
+  </configuration>
+</component>
