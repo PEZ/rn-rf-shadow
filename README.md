@@ -8,11 +8,20 @@ This is an example project, only slightly beyond *Hello World*, using: [shadow-c
 
 Follow along to get started using [Calva](http://calva.io), [Emacs/CIDER](https://cider.mx), or the command line. It is assumed you have Java installad as well as dev tool chains for the platforms yuo are targeting. (If you are targeting the Web, then Chrome is enough.)
 
-## Using Calva
+## Installing
 
-Open the project in VS Code. Then:
+To facilitate that you can easily try this out without installing anything globally on your machine, this project installs everything it needs locally in `node_modules`. Then `npx` is used to execute tools like `expo-cli`. That said, it is assumed you have Java installed.
+
+To install dependencies, and setup the project, run:
 
 1. `npm i`
+
+From there use your favorite editor and/or the prompt.
+
+## Using VS Code + Calva
+
+0. Install the [Calva](https://calva.io) extension in VS Code.
+1. Open the project in VS Code. Then:
 1. Run the Calva command **Start a Project REPL and Connect (aka Jack-in)**
    1. Select the project type `Hello RN Shadow`.
    1. Wait for shadow to build the project.
@@ -21,34 +30,12 @@ Open the project in VS Code. Then:
    1. Click **Run in web browser**
 1. When the app is running the Calva CLJS REPL can be used. Confirm this by evaluating something like: 
    ``` clojure
-   (js/alert "hello world!")
+   (js/alert "Hello world!")
    ```
    (You should see the alert pop up where the app is running.)
 1. Hack away!
 
 Of course you should try to fire up the app on all simulators, emulators and phones you have as well. The Expo UI makes this really easy.
-
-## Disabling Live and Hot Reload
-
-See below about disabling the Hot and Live reload provided by the Expo client, which would defeat the shadow-cljs hot reloading. Shadow is way better and way faster than the Expo stuff is.
-
-For the iOS and Android you do this by disabling Hot Reload from the Expo client [development menu](https://docs.expo.io/workflow/debugging/#developer-menu).
-
-For the web app there is, afaik, no way to disable the Live Reload, but you can block it. neupsh@clojurians suggested the following:
-
-> you can't turn off the live reload, but you can workaround it
-> you can block requests to /sockjs-node/* in chrome (didn't work on firefox)
-
-1. Open Developer Tools
-2. Click the three dots
-3. More tools > Request blocking
-4. Click the `+`
-5. Enter `*/sockjs-node/*`
-6. Done!
-
-![Step 1-3](https://memset.se/9429/e0f0c065c9c0231d80681ca7da72bbcd4a67ff1e)
-
-![Step 4-6](https://memset.se/9430/4bd73bd45cda2f096a2d2106d22ba8130b0c5bd2)
 
 ## Using Emacs with CIDER
 
