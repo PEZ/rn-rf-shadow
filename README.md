@@ -41,9 +41,7 @@ Of course you should try to fire up the app on all simulators, emulators and pho
 
 Open Emacs and a bash shell:
 
-1. In the shell, execute `npm install -g expo-cli shadow-cljs`
-1. Then `yarn` and wait for it to finish.
-1. Then run `shadow-cljs compile :app` to perform an initial build of the app.
+1. Run `npx shadow-cljs compile :app` to perform an initial build of the app.
 1. In Emacs open one of the files in the project (`deps.edn` is fine)
 1. From that buffer, do `cider-jack-in-clojurescript` [C-c M-J] to
    launch a REPL. Follow the series of interactive prompts in the
@@ -57,7 +55,7 @@ Open Emacs and a bash shell:
    running new builds of the app if any files are changed. You'll also
    have a REPL prompt, *however the REPL doesn't work because it isn't
    connected to anything. The app isn't running yet.*
-1. In a shell run `yarn ios` (same as `expo start -i`). This starts
+1. In a shell run `npm run ios` (same as `npx expo start -i`). This starts
    the Metro bundler, perform the bundling, launch the iPhone
    simulator, and transmit the bundled app. Be patient at this step as
    it can take many seconds to complete. When the app is finally
