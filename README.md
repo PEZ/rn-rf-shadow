@@ -95,29 +95,31 @@ This should open the app automatically on your browser after the web version is 
 
 Note that you can also run the following instead of `npm start` to run the app in browser:
    ```
-   # same as expo start --web
+   # same as npx expo start --web
    $ npm run web
    
    # or
    
-   # same as expo start --web-only
+   # same as npx expo start --web-only
    $ npm run web-only
    ```
-Then use your editor of choice to hook up the REPL and such.
 
 ### Using ClojureScript REPL
-Once the app is deployed and opened in phone/simulator/emulator/browser, connect to the nrepl on port 9000 and run the following:
+Once the app is deployed and opened in phone/simulator/emulator/browser, connect to nrepl and run the following:
+
 ```clojure
 (shadow/nrepl-select :app)
 ```
+
+To test the REPL connection:
 
 ```clojure
 (js/alert "Hello from Repl")
 ```
 
-### Command line REPL
+### Command line CLJS REPL
 
-To start a repl that runs on the command line and that is connected to your running app, run the following:
+Shadow can start a CLJS repl for you, if you prefer to stay at the terminal prompt:
 
 ```bash
 $ npx shadow-cljs cljs-repl :app
