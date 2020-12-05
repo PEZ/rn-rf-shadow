@@ -122,6 +122,15 @@ Once the app is deployed and opened in phone/simulator/emulator/browser, connect
 (js/alert "Hello from Repl")
 ```
 
+### Using IntelliJ + Cursive REPL
+
+1. Follow the instructions specified in [Or the Command line](#or-the-command-line).
+2. Open up the project in IntelliJ by pressing `Open or Import` and opening the project root directory. 
+3. Setup a project SDK by pressing `File > Project Structure`, selecting an SDK under `Project SDK` and pressing `OK`.
+4. Select the REPL by pressing `Run > Edit Configurations` and selecting `Clojure REPL > REPL`. 
+5. Run the REPL by pressing `Run > Run 'REPL'`. 
+6. Run the commands in [Using ClojureScript REPL](#using-clojurescript-repl)
+
 ## Production builds
 
 A production build invloves first asking shadow-cljs to build a relase, then to ask Expo to work in Production Mode.
