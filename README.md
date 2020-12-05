@@ -86,10 +86,19 @@ Open Emacs and a bash shell:
    Which should pop-up a modal alert in the simulator, confirming the
    app is running and the REPL is connected end to end.
 
+## Using IntelliJ + Cursive REPL
+
+1. Follow the instructions specified in [Or the Command line](#or-the-command-line).
+2. Open up the project in IntelliJ by pressing `Open or Import` and opening the project root directory. 
+3. Setup a project SDK by pressing `File > Project Structure`, selecting an SDK under `Project SDK` and pressing `OK`.
+4. Select the REPL by pressing `Run > Edit Configurations` and selecting `Clojure REPL > REPL`. 
+5. Run the REPL by pressing `Run > Run 'REPL'`. 
+6. Run the commands in [Using ClojureScript REPL](#using-clojurescript-repl)
+
 ## Or the Command line
 ```sh
 $ npm i
-$ shadow-cljs watch app
+$ npx shadow-cljs watch app
 # wait for first compile to finish or expo gets confused 
 # on another terminal tab/window:
 $ npm start
