@@ -108,15 +108,15 @@ This will run Expo DevTools at http://localhost:19002/
 To run the app in browser using expo-web (react-native-web), press `w` in the same terminal after expo devtools is started.
 This should open the app automatically on your browser after the web version is built. If it does not open automatically, open http://localhost:19006/ manually on your browser.
 
-Note that you can also run the following instead of `yarn start` to run the app in browser:
+Note that you can also run the following instead of `npm start` to run the app in browser:
    ```
    # same as expo start --web
-   $ yarn web
+   $ npm run web
    
    # or
    
    # same as expo start --web-only
-   $ yarn web-only
+   $ npm run web-only
    ```
 Then use your editor of choice to hook up the REPL and such.
 
@@ -137,6 +137,18 @@ To start a repl that runs on the command line and that is connected to your runn
 ```bash
 $ npx shadow-cljs cljs-repl :app
 ```
+
+## Disabling Expo Fast Refresh
+
+You will need to disable **Fast Refresh** provided by the Expo client, which conflicts with shadow-cljs hot reloading. You really want to use Shadow's, because it is way better and way faster than the Expo stuff is.
+
+For the iOS and Android there is a **Disable Fast Refresh** option in the [development menu](https://docs.expo.io/workflow/debugging/#developer-menu). Sometimes you need to first enble it and then disable it.
+
+For the web app there is, afaik, no way to disable the Live Reload. There used to be a way could block it, mentioned at [https://github.com/thheller/reagent-expo](https://github.com/thheller/reagent-expo), but it doesn't seem to work with newer Expo versions.
+
+### Live Reload, Hot Reload, Fast Refresh...
+
+It's complicated. Expo's Fast Refresh has gone through several changes. First there were only **Live Reload**, which is an old school reload of the full app, albeit automatic. Then came **Hot Reload** which lived side by side with the live reload, but was mutually exclusive. Hot reload is faster and smarter. Presumably it can keep state between reloads in vanilla React Native projects. Both have lately been replaced with **Hot Refresh**. Except for when developing Web apps, when you have the the old **Live Reload**, and can't disable it.
 
 ## Production builds
 
