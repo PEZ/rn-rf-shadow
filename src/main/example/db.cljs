@@ -7,4 +7,5 @@
   (s/keys :req-un [::counter]))
 
 ;; initial state of app-db
-(defonce app-db {:counter 0})
+(defonce app-db {:counter 0
+                 :counter-tappable? true})

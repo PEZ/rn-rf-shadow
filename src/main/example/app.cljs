@@ -34,25 +34,28 @@
     text]])
 
 (defn root []
-  [:> rn/View {:style {:flex             1
-                       :background-color :white
-                       :align-items      :center
-                       :justify-content  :flex-start
-                       :padding-top      50}}
-   [:> rn/Text {:style {:font-weight   :bold
-                        :font-size     24
-                        :color         :blue
-                        :margin-bottom 20}} "Clicked: " @(rf/subscribe [:get-counter])]
-   [button {:on-press #(rf/dispatch [:inc-counter])
-            :disabled? true
-            :style {:background-color :blue}}
-    "Click me, I'll count"]
-   [:> rn/Image {:style {:width  200
-                         :height 200}
-                 :source splash-img}]
-   [:> rn/Text {:style {:font-weight :normal
-                        :font-size   15
-                        :color       :blue}} "Using: shadow-cljs+expo+reagent+re-frame"]])
+  (let [counter @(rf/subscribe [:get-counter])
+        tap-enabled? @(rf/subscribe [:counter-tappable?])]
+    [:> rn/View {:style {:flex             1
+                         :background-color :white
+                         :align-items      :center
+                         :justify-content  :flex-start
+                         :padding-top      50}}
+     [:> rn/Text {:style {:font-weight   :bold
+                          :font-size     24
+                          :color         :blue
+                          :margin-bottom 20}} "Clicked: " counter]
+     [button {:on-press #(rf/dispatch [:inc-counter])
+              :disabled? (not tap-enabled?)
+              :style {:background-color :blue}}
+      "Click me, I'll count"]
+     [:> rn/Image {:style {:width  200
+                           :height 200}
+                   :source splash-img}]
+     [:> rn/Text {:style {:font-weight :normal
+                          :font-size   15
+                          :color       :blue}}
+      "Using: shadow-cljs+expo+reagent+re-frame"]]))
 
 (defn start
   {:dev/after-load true}
