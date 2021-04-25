@@ -40,7 +40,7 @@
                          :background-color :white
                          :align-items      :center
                          :justify-content  :flex-start
-                         :padding-top      50}}
+                         :padding-vertical 50}}
      [:> rn/Text {:style {:font-weight   :bold
                           :font-size     24
                           :color         :blue
@@ -65,3 +65,7 @@
 (defn init []
   (rf/dispatch-sync [:initialize-db])
   (start))
+
+(comment
+  (rf/dispatch [:set-tap-enabled true])
+  (rf/dispatch [:inc-counter]))

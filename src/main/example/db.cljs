@@ -1,5 +1,6 @@
 (ns example.db
-  (:require [clojure.spec.alpha :as s]))
+  (:require [clojure.spec.alpha :as s]
+            [re-frame.core :as rf]))
 
 ;; spec of app-db
 (s/def ::counter number?)

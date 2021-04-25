@@ -1,5 +1,5 @@
 (ns example.subs
-  (:require [re-frame.core :refer [reg-sub]]))
+  (:require [re-frame.core :refer [reg-sub dispatch subscribe]]))
 
 (reg-sub
  :get-counter
