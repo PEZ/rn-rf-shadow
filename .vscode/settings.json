@@ -9,5 +9,14 @@
                  "cljsLaunchBuilds": ["app"]
             }
         }
+    ],
+    "calva.customREPLCommandSnippets": [
+        {
+            "name": "Remount CLJS App",
+            "key": "r",
+            "repl": "cljs",
+            "ns": "example.app",
+            "snippet": "(start)"
+        }
     ]
 }
