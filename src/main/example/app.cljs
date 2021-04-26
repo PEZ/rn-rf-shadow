@@ -1,11 +1,10 @@
 (ns example.app
-  (:require
-   ["react-native" :as rn]
-   [reagent.core :as r]
-   [re-frame.core :as rf]
-   [shadow.expo :as expo]
-   [example.events]
-   [example.subs]))
+  (:require ["react-native" :as rn]
+            [reagent.core :as r]
+            [re-frame.core :as rf]
+            [shadow.expo :as expo]
+            [example.events]
+            [example.subs]))
 
 (defonce splash-img (js/require "../assets/shadow-cljs.png"))
 
@@ -67,5 +66,5 @@
   (start))
 
 (comment
-  (rf/dispatch [:set-tap-enabled true])
+  (rf/dispatch [:set-tap-enabled false])
   (rf/dispatch [:inc-counter]))

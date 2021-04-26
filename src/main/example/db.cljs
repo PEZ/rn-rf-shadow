@@ -1,12 +1,10 @@
 (ns example.db
-  (:require [clojure.spec.alpha :as s]
-            [re-frame.core :as rf]))
-
-;; spec of app-db
-(s/def ::counter number?)
-(s/def ::app-db
-  (s/keys :req-un [::counter]))
+  (:require [re-frame.core :as rf]))
 
 ;; initial state of app-db
 (defonce app-db {:counter 0
-                 :counter-tappable? true})
+                 :counter-tappable? true
+                 :last-fibs [1 1]})
+
+(comment
+  @re-frame.db/app-db)

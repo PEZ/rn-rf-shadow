@@ -1,7 +1,7 @@
 (ns example.events
   (:require
    [re-frame.core :refer [reg-event-db dispatch subscribe]]
-   [example.db :as db :refer [app-db]]))
+   [example.db :refer [app-db]]))
 
 (reg-event-db
  :initialize-db
