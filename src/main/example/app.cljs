@@ -6,6 +6,9 @@
             [example.events]
             [example.subs]))
 
+(comment
+  (js/alert "Hello Func Prog Sweden!"))
+
 (defonce splash-img (js/require "../assets/shadow-cljs.png"))
 
 (defn- button [{:keys [style text-style on-press
