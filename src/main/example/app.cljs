@@ -36,7 +36,7 @@
     text]])
 
 (defn root []
-  (let [counter @(rf/subscribe [:get-counter])
+  (let [counter @(rf/subscribe [:current-fib])
         tap-enabled? @(rf/subscribe [:counter-tappable?])]
     [:> rn/View {:style {:flex             1
                          :background-color :white
@@ -46,11 +46,11 @@
      [:> rn/Text {:style {:font-weight   :bold
                           :font-size     24
                           :color         :blue
-                          :margin-bottom 20}} "Clicked: " counter]
-     [button {:on-press #(rf/dispatch [:inc-counter])
+                          :margin-bottom 20}} "Tapped: " counter]
+     [button {:on-press #(rf/dispatch [:advance-fib])
               :disabled? (not tap-enabled?)
               :style {:background-color :blue}}
-      "Click me, I'll count"]
+      "Tap me, I'll count"]
      [:> rn/Image {:style {:width  200
                            :height 200}
                    :source splash-img}]
@@ -69,5 +69,5 @@
   (start))
 
 (comment
-  (rf/dispatch [:set-tap-enabled false])
-  (rf/dispatch [:inc-counter]))
+  (rf/dispatch [:set-tap-enabled true])
+  (rf/dispatch [:advance-fib]))
