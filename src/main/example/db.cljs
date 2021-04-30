@@ -3,8 +3,7 @@
 
 ;; initial state of app-db
 (def app-db {:counter 0
-                 :counter-tappable? true
-                 :last-fibs [0 1]})
+             :counter-tappable? true})
 
 (comment
   @re-frame.db/app-db)

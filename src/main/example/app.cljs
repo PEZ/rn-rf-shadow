@@ -36,7 +36,7 @@
     text]])
 
 (defn root []
-  (let [counter @(rf/subscribe [:current-fib])
+  (let [counter @(rf/subscribe [:get-counter])
         tap-enabled? @(rf/subscribe [:counter-tappable?])]
     [:> rn/View {:style {:flex             1
                          :background-color :white
@@ -47,7 +47,7 @@
                           :font-size     24
                           :color         :blue
                           :margin-bottom 20}} "Tapped: " counter]
-     [button {:on-press #(rf/dispatch [:advance-fib])
+     [button {:on-press #(rf/dispatch [:inc-counter])
               :disabled? (not tap-enabled?)
               :style {:background-color :blue}}
       "Tap me, I'll count"]

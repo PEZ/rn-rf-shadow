@@ -11,12 +11,4 @@
  (fn [db _]
    (:counter-tappable? db)))
 
-(reg-sub
- :current-fib
- (fn [db _]
-   (->> db
-        :last-fibs
-        first)))
-
-(->> @re-frame.db/app-db
-     :last-fibs)
+(->> @re-frame.db/app-db)
