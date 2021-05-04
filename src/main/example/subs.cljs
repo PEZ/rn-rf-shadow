@@ -11,4 +11,5 @@
  (fn [db _]
    (:counter-tappable? db)))
 
-(->> @re-frame.db/app-db)
+(->> @re-frame.db/app-db
+     :counter)

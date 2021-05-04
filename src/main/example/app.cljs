@@ -10,23 +10,36 @@
 (def shadow-splash (js/require "../assets/shadow-cljs.png"))
 (def cljs-splash (js/require "../assets/cljs.png"))
 
+(defn fizz-buzz [n]
+  (cond (zero? (mod n 15)) "FizzBuzz"
+        (zero? (mod n 5)) "Buzz"
+        (zero? (mod n 3)) "Fizz"
+        :else n))
+(comment
+  (->> @(rf/subscribe [:get-counter])
+       ((fn fizz-buzz [n]
+          (cond (zero? (mod n 15)) "FizzBuzz"
+                (zero? (mod n 5)) "Buzz"
+                (zero? (mod n 3)) "Fizz"
+                :else n)))))
 (defn root []
   (let [counter @(rf/subscribe [:get-counter])
+        fb (fizz-buzz counter)
         tap-enabled? @(rf/subscribe [:counter-tappable?])]
     [:> rn/View {:style {:flex 1
                          :padding-vertical 50
-                         :justify-content :flex-start
+                         :justify-content :space-between
                          :align-items :center
                          :background-color :white}}
      [:> rn/View {:style {:align-items :center}}
+      [:> rn/Text {:style {:font-weight   :bold
+                           :font-size     72
+                           :color         :blue
+                           :margin-bottom 20}} fb]
       [button {:on-press #(rf/dispatch [:inc-counter])
                :disabled? (not tap-enabled?)
                :style {:background-color :blue}}
-       "Tap me, I'll count"]
-      [:> rn/Text {:style {:font-weight   :bold
-                           :font-size     24
-                           :color         :blue
-                           :margin-bottom 20}} "Tapped: " counter]]
+       "Tap me, I'll count"]]
      [:> rn/View
       [:> rn/View {:style {:flex-direction :row
                            :align-items :center

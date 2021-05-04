@@ -17,3 +17,9 @@
  :set-tap-enabled
  (fn [db [_ enabled?]]
    (assoc db :counter-tappable? enabled?)))
+
+(def foo {:a 2})
+
+(comment
+  (inc 1)
+  (assoc foo :b 1))
