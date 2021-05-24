@@ -11,7 +11,7 @@
     "eject": "npx expo eject"
   },
   "dependencies": {
-    "expo-cli": "4.0.2",
+    "expo-cli": "4.1.2",
     "expo": "39.0.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
