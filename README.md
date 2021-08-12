@@ -31,7 +31,7 @@ From there use your favorite editor and/or the prompt.
 1. Run the Calva command **Start a Project REPL and Connect (aka Jack-in)**
    1. Select the project type `Hello RN Shadow`.
    1. Wait for shadow to build the project.
-1. Then **Start build task**. This will start Expo and the Metro
+1. Then **Run Build Task**. This will start Expo and the Metro
    builder. Wait for it to fire up Expo DevTools in your browser.
    1. Click **Run in web browser**
 1. When the app is running the Calva CLJS REPL can be used. Confirm this by evaluating something like: 
