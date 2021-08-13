@@ -1,54 +1,46 @@
 (ns example.app
-  (:require
-   ["react-native" :as rn]
-   [reagent.core :as r]
-   [re-frame.core :as rf]
-   [expo.root :as expo-root]
-   [example.events]
-   [example.subs]))
+  (:require [example.events]
+            [example.subs]
+            [example.widgets :refer [button]]
+            [expo.root :as expo-root]
+            [re-frame.core :as rf]
+            ["react-native" :as rn]
+            [reagent.core :as r]))
 
-;; must use defonce and must refresh full app so metro can fill these in
-;; at live-reload time `require` does not exist and will cause errors
-;; must use path relative to :output-dir
-
-(defonce splash-img (js/require "../assets/shadow-cljs.png"))
-
-(def styles
-  {:container   {:flex             1
-                 :background-color :white
-                 :align-items      :center
-                 :justify-content  :flex-start
-                 :padding-top      50}
-   :counter     {:font-weight   :bold
-                 :font-size     24
-                 :color         :blue
-                 :margin-bottom 20}
-   :button      {:font-weight      :bold
-                 :font-size        18
-                 :padding          6
-                 :background-color :blue
-                 :border-radius    999
-                 :margin-bottom    20}
-   :button-text {:padding-left  12
-                 :padding-right 12
-                 :font-weight   :bold
-                 :font-size     18
-                 :color         :white}
-   :logo        {:width  200
-                 :height 200}
-   :creds       {:font-weight :normal
-                 :font-size   15
-                 :color       :blue}})
+(def shadow-splash (js/require "../assets/shadow-cljs.png"))
+(def cljs-splash (js/require "../assets/cljs.png"))
 
 (defn root []
-  [:> rn/View {:style (:container styles)}
-   [:> rn/Text {:style (:counter styles)} "Clicked: " @(rf/subscribe [:get-counter])]
-   [:> rn/TouchableOpacity {:style    (:button styles)
-                            :on-press #(rf/dispatch [:inc-counter])}
-    [:> rn/Text {:style (:button-text styles)} "Click me, I'll count!!!!"]]
-   [:> rn/Image {:style  (:logo styles)
-                 :source splash-img}]
-   [:> rn/Text {:style (:creds styles)} "Using: shadow-cljs+expo+reagent+re-frame"]])
+  (let [counter @(rf/subscribe [:get-counter])
+        tap-enabled? @(rf/subscribe [:counter-tappable?])]
+    [:> rn/View {:style {:flex 1
+                         :padding-vertical 50
+                         :justify-content :space-between
+                         :align-items :center
+                         :background-color :white}}
+     [:> rn/View {:style {:align-items :center}}
+      [:> rn/Text {:style {:font-weight   :bold
+                           :font-size     72
+                           :color         :blue
+                           :margin-bottom 20}} counter]
+      [button {:on-press #(rf/dispatch [:inc-counter])
+               :disabled? (not tap-enabled?)
+               :style {:background-color :blue}}
+       "Tap me, I'll count"]]
+     [:> rn/View
+      [:> rn/View {:style {:flex-direction :row
+                           :align-items :center
+                           :margin-bottom 20}}
+       [:> rn/Image {:style {:width  160
+                             :height 160}
+                     :source cljs-splash}]
+       [:> rn/Image {:style {:width  160
+                             :height 160}
+                     :source shadow-splash}]]
+      [:> rn/Text {:style {:font-weight :normal
+                           :font-size   15
+                           :color       :blue}}
+       "Using: shadow-cljs+expo+reagent+re-frame"]]]))
 
 (defn start
   {:dev/after-load true}
