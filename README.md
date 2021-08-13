@@ -137,7 +137,7 @@ You will need to disable **Fast Refresh** provided by the Expo client, which con
 
 For the iOS and Android there is a **Disable Fast Refresh** option in the [development menu](https://docs.expo.io/workflow/debugging/#developer-menu). Sometimes you need to first enble it and then disable it.
 
-For the web app there is, afaik, no way to disable the Live Reload. There used to be a way could block it, mentioned at [https://github.com/thheller/reagent-expo](https://github.com/thheller/reagent-expo), but it doesn't seem to work with newer Expo versions.
+For the web app there is a `webpack.config.js` in this repo that is setup to stop Webpack from refreshing saved files, so that should work out-of-the-box.
 
 ### Live Reload, Hot Reload, Fast Refresh...
 
