@@ -11,16 +11,16 @@
     "eject": "npx expo eject"
   },
   "dependencies": {
-    "expo-cli": "4.0.2",
-    "expo": "39.0.5",
+    "expo-cli": "4.10.0",
+    "expo": "^42.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "0.64.1",
-    "react-native-web": "0.13.7"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "babel-preset-expo": "^8.3.0",
-    "shadow-cljs": "^2.11.8"
+    "babel-preset-expo": "8.3.0",
+    "shadow-cljs": "^2.15.3"
   },
   "private": true
 }

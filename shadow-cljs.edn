@@ -1,8 +1,8 @@
 {:source-paths ["src/main"
                 "src/test"]
 
- :dependencies [[reagent "1.0.0-alpha2"]
-                [re-frame "1.1.2"]]
+ :dependencies [[reagent "1.1.0"]
+                [re-frame "1.2.0"]]
 
  :builds       {:app {:target           :react-native
                       :init-fn          example.app/init
