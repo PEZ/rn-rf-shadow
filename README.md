@@ -12,11 +12,11 @@ ClojureScript ❤️ React Native</a>
   </div>
 </div>
 
-Follow along to get started using [Calva](http://calva.io), [Emacs/CIDER](https://cider.mx), [Cursive](https://cursive-ide.com), or the command line. It is assumed you have Java installad as well as dev tool chains for the platforms you are targeting. (If you are targeting the Web, then Chrome is enough.)
+Follow along to get started. There are instructions for [Calva](http://calva.io), [Emacs/CIDER](https://cider.mx), [Cursive](https://cursive-ide.com), and the command line. It is assumed you have Java and Node installad as well as dev tool chains for the platforms you are targeting. (If you are targeting the Web, then Chrome is enough.)
 
 ## Installing
 
-To facilitate that you can easily try this out without installing anything globally on your machine, this project installs everything it needs locally in `node_modules`. Then `npx` is used to execute tools like `expo-cli`. That said, it is assumed you have Java installed.
+To facilitate that you can easily try this out without installing anything globally on your machine, this project installs everything it needs locally in `node_modules`. Then `npx` is used to execute tools like `expo-cli`.
 
 To install dependencies, and setup the project, run:
 
@@ -117,6 +117,8 @@ Once the app is deployed and opened in phone/simulator/emulator/browser, connect
 (shadow/nrepl-select :app)
 ```
 
+NB: Calva users don't need to do this.
+
 To test the REPL connection:
 
 ```clojure
@@ -135,13 +137,13 @@ $ npx shadow-cljs cljs-repl :app
 
 You will need to disable **Fast Refresh** provided by the Expo client, which conflicts with shadow-cljs hot reloading. You really want to use Shadow's, because it is way better and way faster than the Expo stuff is.
 
-For the iOS and Android there is a **Disable Fast Refresh** option in the [development menu](https://docs.expo.io/workflow/debugging/#developer-menu). Sometimes you need to first enble it and then disable it.
+For the iOS and Android there is a **Disable Fast Refresh** option in the [development menu](https://docs.expo.io/workflow/debugging/#developer-menu). NB: _Often you need to first enable it and then disable it._
 
 For the web app there is a `webpack.config.js` in this repo that is setup to stop Webpack from refreshing saved files, so that should work out-of-the-box.
 
 ### Live Reload, Hot Reload, Fast Refresh...
 
-It's complicated. Expo's Fast Refresh has gone through several changes. First there were only **Live Reload**, which is an old school reload of the full app, albeit automatic. Then came **Hot Reload** which lived side by side with the live reload, but was mutually exclusive. Hot reload is faster and smarter. Presumably it can keep state between reloads in vanilla React Native projects. Both have lately been replaced with **Hot Refresh**. Except for when developing Web apps, when you have the the old **Live Reload**, and can't disable it.
+It's complicated. Expo's/React Native's Fast Refresh has gone through several changes. First there were only **Live Reload**, which is an old school reload of the full app, albeit automatic. Then came **Hot Reload** which lived side by side with the live reload, but was mutually exclusive. Hot reload is faster and smarter. Presumably it can keep state between reloads in vanilla React Native projects. Both have lately been replaced with **Hot Refresh**. Except for when developing Web apps, when you have Webpack **Live Reload** (which is disabled in this project).
 
 ## Production builds
 
