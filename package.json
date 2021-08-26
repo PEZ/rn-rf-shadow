@@ -1,5 +1,4 @@
 {
-  "main": "app/index.js",
   "scripts": {
     "server": "npx shadow-cljs server",
     "start": "npx expo start",
@@ -8,7 +7,8 @@
     "web": "npx expo start --web",
     "web-only": "npx expo start --web-only",
     "release": "npx shadow-cljs release app",
-    "eject": "npx expo eject"
+    "eject": "npx expo eject",
+    "eas-build-post-install": "npm release"
   },
   "dependencies": {
     "expo-cli": "4.10.0",
