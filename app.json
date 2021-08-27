@@ -3,7 +3,6 @@
     "name": "hello-world",
     "slug": "reagent-expo",
     "privacy": "public",
-    "entryPoint": "./app/index.js",
     "platforms": [
       "ios",
       "android",
