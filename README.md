@@ -147,13 +147,21 @@ It's complicated. Expo's/React Native's Fast Refresh has gone through several ch
 
 ## Production builds
 
-A production build invloves first asking shadow-cljs to build a relase, then to ask Expo to work in Production Mode.
+A production build involves first asking shadow-cljs to build a release, then to ask Expo to work in Production Mode.
 
 1. Kill the watch and expo tasks.
 1. Execute `shadow-cljs release app`
 1. Start the expo task (as per above)
    1. Enable Production mode.
    1. Start the app.
+
+### Using EAS Build
+
+`expo build` is the classic way of creating a build of your app, and `eas build` is the new version of `expo build`. Using EAS Build currently requires an Expo paid plan. Make sure to download the eas-cli to run `eas`.
+
+The steps below provide an example of using EAS Build to build an apk file to run on an Android emulator or device.
+
+0. Configure EAS Build in your project with `eas configure:build`. When prompted, select Android for the platform, 
 
 ## "Known good" toolchain configurations
 
