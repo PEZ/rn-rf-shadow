@@ -157,7 +157,7 @@ A production build involves first asking shadow-cljs to build a release, then to
 
 ### Using EAS Build
 
-`expo build` is the classic way of creating a build of your app, and `eas build` is the new version of `expo build`. Using EAS Build currently requires an Expo account with a paid plan subscription.
+`expo build` is the classic way of building an Expo app, and `eas build` is the new version of `expo build`. Using EAS Build currently requires an Expo account with a paid plan subscription.
 
 The steps below provide an example of using EAS Build to build an apk file to run on an Android emulator or device.
 
