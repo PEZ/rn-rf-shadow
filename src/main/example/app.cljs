@@ -3,6 +3,7 @@
             [example.subs]
             [example.widgets :refer [button]]
             [expo.root :as expo-root]
+            ["expo-status-bar" :refer [StatusBar]]
             [re-frame.core :as rf]
             ["react-native" :as rn]
             [reagent.core :as r]))
@@ -40,7 +41,8 @@
       [:> rn/Text {:style {:font-weight :normal
                            :font-size   15
                            :color       :blue}}
-       "Using: shadow-cljs+expo+reagent+re-frame"]]]))
+       "Using: shadow-cljs+expo+reagent+re-frame"]]
+     [:> StatusBar {:style "auto"}]]))
 
 (defn start
   {:dev/after-load true}
