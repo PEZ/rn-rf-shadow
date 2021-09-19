@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "hello-world",
+    "name": "rn-rf-shadow",
+    "owner": "honestdeed",
     "slug": "reagent-expo",
     "privacy": "public",
     "platforms": [
