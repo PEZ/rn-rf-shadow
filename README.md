@@ -163,7 +163,7 @@ The steps below provide an example of using EAS Build to build an apk file to ru
 
 0. Install the latest EAS CLI by running `npm install -g eas-cli`
 0. Log into your Expo account
-0. Configure EAS Build in your project with `eas configure:build`. When prompted, select Android for the platform.
+0. Configure EAS Build in your project with `eas build:configure`. When prompted, select Android for the platform.
 0. Make your eas.json file contents look like this:
    ```json
    {
@@ -178,6 +178,7 @@ The steps below provide an example of using EAS Build to build an apk file to ru
      }
    }
    ```
+0. Stop the shadow-cljs watch process if it's running. Run `npm run release`.
 0. Run `eas build --profile=development --platform=android`
 0. Navigate to the URL given by the command to monitor the build. When it completes, download the apk and install it on your device or emulator.
 

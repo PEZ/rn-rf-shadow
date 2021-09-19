@@ -7,8 +7,7 @@
     "web": "npx expo start --web",
     "web-only": "npx expo start --web-only",
     "release": "npx shadow-cljs release app",
-    "eject": "npx expo eject",
-    "eas-build-post-install": "npm run release"
+    "eject": "npx expo eject"
   },
   "dependencies": {
     "expo-cli": "4.10.0",
