@@ -1,0 +1,14 @@
+{
+  "build": {
+    "release": {},
+    "development": {
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      }
+    }
+  },
+  "submit": {
+    "release": {}
+  }
+}

@@ -1,4 +1,6 @@
 {
+  "name": "rn-rf-shadow",
+  "owner": "honestdeed",
   "scripts": {
     "server": "npx shadow-cljs server",
     "start": "npx expo start",
