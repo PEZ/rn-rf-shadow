@@ -11,9 +11,13 @@ out/
 pom.xml
 .idea/
 *.iml
-app/
+app/*
+# Include this file to make EAS Build work
+!app/index.js
 .cpcache
 /web-build
 .calva/output-window/
 .lsp/sqlite*.db
 .DS_Store
+.clj-kondo/.cache
+.lsp/.cache
