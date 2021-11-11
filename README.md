@@ -188,7 +188,7 @@ See [the EAS Build docs](https://docs.expo.dev/build/introduction/) for more inf
 
 If you want to use EAS Build with a project not based on this template, see [this PR](https://github.com/PEZ/rn-rf-shadow/pull/24) for information about how your project can be set up to avoid an error during the build process.
 
-Note: The `eas-build-pre-install.sh` script makes EAS install Java in the MacOS environment when running a build for iOS. This ensures that shadow-cljs can be run in the EAS pipeline so that your CLJS can be compiled.
+Note: The `eas-build-pre-install.sh` script makes EAS install Java in the MacOS environment when running a build for iOS. This ensures that shadow-cljs can be run in the EAS pipeline to build your ClojureScript code.
 
 ## "Known good" toolchain configurations
 
