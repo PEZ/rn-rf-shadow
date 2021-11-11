@@ -7,7 +7,9 @@
     "web": "npx expo start --web",
     "web-only": "npx expo start --web-only",
     "release": "npx shadow-cljs release app",
-    "eject": "npx expo eject"
+    "eject": "npx expo eject",
+    "eas-build-pre-install": "bash eas-build-pre-install.sh",
+    "eas-build-post-install": "npx shadow-cljs release app"
   },
   "dependencies": {
     "expo-cli": "4.10.0",

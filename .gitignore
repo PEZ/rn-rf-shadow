@@ -11,12 +11,11 @@ out/
 pom.xml
 .idea/
 *.iml
-app/*
-# Include this file to make EAS Build work.
-# See https://github.com/expo/fyi/blob/master/eas-build-archive.md for details and another option.
-!app/index.js
+app
 .cpcache
 /web-build
 .calva/output-window/
-.lsp/sqlite*.db
 .DS_Store
+
+.lsp/.cache
+.clj-kondo/.cache
