@@ -163,28 +163,32 @@ The steps below provide an example of using EAS Build to build an apk file to ru
 
 0. Install the latest EAS CLI by running `npm install -g eas-cli`
 0. Log into your Expo account
-0. Configure EAS Build in your project with `eas build:configure`. When prompted, select Android for the platform.
+0. Configure EAS Build in your project with `eas build:configure`.
 0. Make your eas.json file contents look like this:
-   ```json
-   {
-     "build": {
-       "release": {},
-       "development": {
-         "distribution": "internal",
-         "android": {
-           "buildType": "apk"
-         }
-       }
-     }
-   }
-   ```
-0. Stop the shadow-cljs watch process if it's running. Run `npm run release`.
-0. Run `eas build --profile=development --platform=android`
+    ```json
+    {
+      "build": {
+        "production": {},
+        "development": {
+          "distribution": "internal",
+          "android": {
+            "buildType": "apk"
+          },
+          "ios": {
+            "simulator": true
+          }
+        }
+      }
+    }
+    ```
+0. Commit your changes, run `eas build`, and follow the prompts.
 0. Navigate to the URL given by the command to monitor the build. When it completes, download the apk and install it on your device or emulator.
 
 See [the EAS Build docs](https://docs.expo.dev/build/introduction/) for more information.
 
 If you want to use EAS Build with a project not based on this template, see [this PR](https://github.com/PEZ/rn-rf-shadow/pull/24) for information about how your project can be set up to avoid an error during the build process.
+
+Note: The `eas-build-pre-install.sh` script makes EAS install Java in the MacOS environment when running a build for iOS. This ensures that shadow-cljs can be run in the EAS pipeline so that your CLJS can be compiled.
 
 ## "Known good" toolchain configurations
 
