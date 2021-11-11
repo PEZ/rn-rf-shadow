@@ -181,7 +181,7 @@ The steps below provide an example of using EAS Build to build an apk file to ru
       }
     }
     ```
-0. Commit your changes, run `eas build`, and follow the prompts.
+0. Commit your changes, run `eas build --profile development`, and follow the prompts.
 0. Navigate to the URL given by the command to monitor the build. When it completes, download the apk and install it on your device or emulator.
 
 See [the EAS Build docs](https://docs.expo.dev/build/introduction/) for more information.
