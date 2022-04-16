@@ -80,11 +80,13 @@ Open Emacs and a bash shell:
 ## Using IntelliJ + Cursive REPL
 
 1. Follow the instructions specified in [Or the Command line](#or-the-command-line).
-2. Open up the project in IntelliJ by pressing `Open or Import` and opening the project root directory. 
-3. Setup a project SDK by pressing `File > Project Structure`, selecting an SDK under `Project SDK` and pressing `OK`.
-4. Select the REPL by pressing `Run > Edit Configurations` and selecting `Clojure REPL > REPL`. 
-5. Run the REPL by pressing `Run > Run 'REPL'`. 
-6. Run the commands in [Using ClojureScript REPL](#using-clojurescript-repl)
+2. Create a Maven POM using `shadow-cljs pom`, as described in the [Shadow doc](https://shadow-cljs.github.io/docs/UsersGuide.html#_cursive).
+3. There are now two options
+   1. If you already have a project open, open the project in IntelliJ using _File | New | Project from existing sources..._ and indicating the `pom.xml` file.
+   2. If you're at the welcome screen, press the "Open" button and navigate to the `pom.xml`.
+5. Ensure the project has an SDK configured using _File | Project Structure_, and checking under `Project`.
+7. The project comes with a REPL run configuration called "REPL". Run the REPL using the _Run | Run 'REPL'_ menu item, or the toolbar button. 
+8. Run the commands in [Using ClojureScript REPL](#using-clojurescript-repl)
 
 ## Or the Command line
 ```sh
