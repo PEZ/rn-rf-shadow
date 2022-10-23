@@ -19,3 +19,4 @@ app
 
 .lsp/.cache
 .clj-kondo/.cache
+.lsp/sqlite.db
