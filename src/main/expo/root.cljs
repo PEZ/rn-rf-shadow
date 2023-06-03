@@ -30,5 +30,3 @@
                         body)))})]
 
         (expo/registerRootComponent Root)))))
-
-
