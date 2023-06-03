@@ -10,12 +10,12 @@
             ["@react-navigation/native" :as rnn]
             ["@react-navigation/native-stack" :as rnn-stack]))
 
-(def shadow-splash (js/require "../assets/shadow-cljs.png"))
-(def cljs-splash (js/require "../assets/cljs.png"))
+(defonce shadow-splash (js/require "../assets/shadow-cljs.png"))
+(defonce cljs-splash (js/require "../assets/cljs.png"))
 
 (defonce Stack (rnn-stack/createNativeStackNavigator))
 
-(defn home []
+(defn home [^js props]
   (r/with-let [counter (rf/subscribe [:get-counter])
                tap-enabled? (rf/subscribe [:counter-tappable?])]
     [:> rn/View {:style {:flex 1
@@ -32,6 +32,10 @@
                :disabled? (not @tap-enabled?)
                :style {:background-color :blue}}
        "Tap me, I'll count"]]
+     [:> rn/View {:style {:align-items :center}}
+      [button {:on-press (fn []
+                           (-> props .-navigation ( .navigate "About")))}
+       "Tap me, I'll navigate"]]
      [:> rn/View
       [:> rn/View {:style {:flex-direction :row
                            :align-items :center
@@ -48,11 +52,40 @@
        "Using: shadow-cljs+expo+reagent+re-frame"]]
      [:> StatusBar {:style "auto"}]]))
 
+(defn about []
+  (r/with-let [counter (rf/subscribe [:get-counter])]
+    [:> rn/View {:style {:flex 1
+                         :padding-vertical 50
+                         :padding-horizontal 20
+                         :justify-content :space-between
+                         :align-items :flex-start
+                         :background-color :white}}
+     [:> rn/View {:style {:align-items :flex-start}}
+      [:> rn/Text {:style {:font-weight   :bold
+                           :font-size     54
+                           :color         :blue
+                           :margin-bottom 20}}
+       "About Example App"]
+      [:> rn/Text {:style {:font-weight   :bold
+                           :font-size     20
+                           :color         :blue
+                           :margin-bottom 20}}
+       (str "Counter is at: " @counter)]
+      [:> rn/Text {:style {:font-weight :normal
+                           :font-size   15
+                           :color       :blue}}
+       "Built with React Native, Expo, Reagent, re-frame, and React Navigation"]]
+     [:> StatusBar {:style "auto"}]]))
+
 (defn root []
   [:> rnn/NavigationContainer 
    [:> Stack.Navigator
     [:> Stack.Screen {:name "Home"
-                      :component #(r/as-element [home])}]]])
+                      :component (fn [props] (r/as-element [home props]))
+                      :options {:title "Example App"}}]
+    [:> Stack.Screen {:name "About"
+                      :component (fn [props] (r/as-element [about props]))
+                      :options {:title "About"}}]]])
 
 (defn start
   {:dev/after-load true}
