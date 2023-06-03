@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
     "create-react-class": "^15.7.0",
     "expo": "^48.0.19",
     "expo-cli": "^6.3.8",
