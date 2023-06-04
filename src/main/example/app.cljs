@@ -66,7 +66,7 @@
                            :font-size     54
                            :color         :blue
                            :margin-bottom 20}}
-       "About Example App!"]
+       "About Example App"]
       [:> rn/Text {:style {:font-weight   :bold
                            :font-size     20
                            :color         :blue
@@ -79,14 +79,14 @@
      [:> StatusBar {:style "auto"}]]))
 
 (defn root []
-  ;; The save and restore of the navigation root state is for shadow-cljs hot reloading dev convenience
+  ;; The save and restore of the navigation root state is for development time bliss
   (r/with-let [!root-state (rf/subscribe [:routing/navigation-root-state])
-               save-root-state (fn [^js state]
-                                 (rf/dispatch [:routing/set-navigation-root-state state]))]
-    [:> rnn/NavigationContainer {:ref (fn [^js navigation-ref]
-                                        (when navigation-ref
-                                          (rf/dispatch [:routing/set-navigation-ref navigation-ref])
-                                          (.addListener navigation-ref "state" save-root-state)))
+               save-root-state! (fn [^js state]
+                                  (rf/dispatch [:routing/set-navigation-root-state state]))
+               add-listener! (fn [^js navigation-ref]
+                               (when navigation-ref
+                                 (.addListener navigation-ref "state" save-root-state!)))]
+    [:> rnn/NavigationContainer {:ref add-listener!
                                  :initialState (when @!root-state (-> @!root-state .-data .-state))}
      [:> Stack.Navigator
       [:> Stack.Screen {:name "Home"
