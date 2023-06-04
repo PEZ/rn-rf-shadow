@@ -12,11 +12,6 @@
    (:counter-tappable? db)))
 
 (rf/reg-sub
- :routing/current-route
+ :navigation/root-state
  (fn [db _]
-   (get-in db [:routing :current-route])))
-
-(rf/reg-sub
- :routing/navigation-root-state
- (fn [db _]
-   (get-in db [:routing :navigation-root-state])))
+   (get-in db [:navigation :root-state])))

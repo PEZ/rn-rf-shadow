@@ -34,7 +34,7 @@
        "Tap me, I'll count"]]
      [:> rn/View {:style {:align-items :center}}
       [button {:on-press (fn []
-                           (rf/dispatch [:routing/navigate (.-navigation props) "About"]))}
+                           (-> props .-navigation (.navigate "About")))}
        "Tap me, I'll navigate"]]
      [:> rn/View
       [:> rn/View {:style {:flex-direction :row
@@ -80,9 +80,9 @@
 
 (defn root []
   ;; The save and restore of the navigation root state is for development time bliss
-  (r/with-let [!root-state (rf/subscribe [:routing/navigation-root-state])
+  (r/with-let [!root-state (rf/subscribe [:navigation/root-state])
                save-root-state! (fn [^js state]
-                                  (rf/dispatch [:routing/set-navigation-root-state state]))
+                                  (rf/dispatch [:navigation/set-root-state state]))
                add-listener! (fn [^js navigation-ref]
                                (when navigation-ref
                                  (.addListener navigation-ref "state" save-root-state!)))]
@@ -103,5 +103,4 @@
 
 (defn init []
   (rf/dispatch-sync [:initialize-db])
-  (rf/dispatch-sync [:routing/set-current-route "Home"])
   (start))

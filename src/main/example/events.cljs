@@ -14,23 +14,7 @@
  (fn [db [_ _]]
    (update db :counter inc)))
 
-(rf/reg-fx
- :routing/navigate
- (fn [[navigation route]]
-   (.navigate navigation route)))
-
 (rf/reg-event-db
- :routing/set-current-route
- (fn [db [_ route]]
-   (assoc-in db [:routing :current-route] route)))
-
-(rf/reg-event-fx
- :routing/navigate
- (fn [_ [_ navigation route]]
-   {:dispatch [:routing/set-current-route route]
-    :routing/navigate [navigation route]}))
-
-(rf/reg-event-db
- :routing/set-navigation-root-state
+ :navigation/set-root-state
  (fn [db [_ navigation-root-state]]
-   (assoc-in db [:routing :navigation-root-state] navigation-root-state)))
+   (assoc-in db [:navigation :root-state] navigation-root-state)))
