@@ -34,7 +34,7 @@ From there use your favorite editor and/or the prompt.
 1. Then **Run Build Task**. This will start Expo and the Metro
    builder. Wait for it to fire up Expo DevTools in your browser.
    1. Click **Run in web browser**
-1. When the app is running the Calva CLJS REPL can be used. Confirm this by evaluating something like: 
+1. When the app is running the Calva CLJS REPL can be used. Confirm this by evaluating something like:
    ``` clojure
    (js/alert "Hello world!")
    ```
@@ -66,14 +66,14 @@ Open Emacs and a bash shell:
    simulator, and transmit the bundled app. Be patient at this step as
    it can take many seconds to complete. When the app is finally
    running expo will display the message:
-   
+
        WebSocket connected!
        REPL init successful
 1. Once you see that the REPL is initalized, you can return to Emacs
    and confirm the REPL is connected and functional:
    ``` clojure
    cljs.user> (js/alert "hello world!")
-   ```   
+   ```
    Which should pop-up a modal alert in the simulator, confirming the
    app is running and the REPL is connected end to end.
 
@@ -85,14 +85,14 @@ Open Emacs and a bash shell:
    1. If you already have a project open, open the project in IntelliJ using _File | New | Project from existing sources..._ and indicating the `pom.xml` file.
    2. If you're at the welcome screen, press the "Open" button and navigate to the `pom.xml`.
 5. Ensure the project has an SDK configured using _File | Project Structure_, and checking under `Project`.
-7. The project comes with a REPL run configuration called "REPL". Run the REPL using the _Run | Run 'REPL'_ menu item, or the toolbar button. 
+7. The project comes with a REPL run configuration called "REPL". Run the REPL using the _Run | Run 'REPL'_ menu item, or the toolbar button.
 8. Run the commands in [Using ClojureScript REPL](#using-clojurescript-repl)
 
 ## Or the Command line
 ```sh
 $ npm i
 $ npx shadow-cljs watch app
-# wait for first compile to finish or expo gets confused 
+# wait for first compile to finish or expo gets confused
 # on another terminal tab/window:
 $ npm start
 ```
@@ -105,9 +105,9 @@ Note that you can also run the following instead of `npm start` to run the app i
    ```
    # same as npx expo start --web
    $ npm run web
-   
+
    # or
-   
+
    # same as npx expo start --web-only
    $ npm run web-only
    ```
@@ -191,6 +191,10 @@ See [the EAS Build docs](https://docs.expo.dev/build/introduction/) for more inf
 If you want to use EAS Build with a project not based on this template, see [this PR](https://github.com/PEZ/rn-rf-shadow/pull/24) for information about how your project can be set up to avoid an error during the build process.
 
 Note: The `eas-build-pre-install.sh` script makes EAS install Java in the MacOS environment when running a build for iOS. This ensures that shadow-cljs can be run in the EAS pipeline to build your ClojureScript code.
+
+## React Navigation included
+
+The app is setup to use [React Navigation](https://reactnavigation.org/). If you don't need that in your app, just remove it.
 
 ## "Known good" toolchain configurations
 
