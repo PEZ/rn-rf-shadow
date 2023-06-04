@@ -34,7 +34,7 @@
        "Tap me, I'll count"]]
      [:> rn/View {:style {:align-items :center}}
       [button {:on-press (fn []
-                           (-> props .-navigation ( .navigate "About")))}
+                           (rf/dispatch [:routing/navigate (.-navigation props) "About"]))}
        "Tap me, I'll navigate"]]
      [:> rn/View
       [:> rn/View {:style {:flex-direction :row
@@ -52,7 +52,8 @@
        "Using: shadow-cljs+expo+reagent+re-frame"]]
      [:> StatusBar {:style "auto"}]]))
 
-(defn about []
+(defn- about 
+  []
   (r/with-let [counter (rf/subscribe [:get-counter])]
     [:> rn/View {:style {:flex 1
                          :padding-vertical 50
@@ -65,7 +66,7 @@
                            :font-size     54
                            :color         :blue
                            :margin-bottom 20}}
-       "About Example App"]
+       "About Example App!"]
       [:> rn/Text {:style {:font-weight   :bold
                            :font-size     20
                            :color         :blue
@@ -78,14 +79,22 @@
      [:> StatusBar {:style "auto"}]]))
 
 (defn root []
-  [:> rnn/NavigationContainer 
-   [:> Stack.Navigator
-    [:> Stack.Screen {:name "Home"
-                      :component (fn [props] (r/as-element [home props]))
-                      :options {:title "Example App"}}]
-    [:> Stack.Screen {:name "About"
-                      :component (fn [props] (r/as-element [about props]))
-                      :options {:title "About"}}]]])
+  ;; The save and restore of the navigation root state is for shadow-cljs hot reloading dev convenience
+  (r/with-let [!root-state (rf/subscribe [:routing/navigation-root-state])
+               save-root-state (fn [^js state]
+                                 (rf/dispatch [:routing/set-navigation-root-state state]))]
+    [:> rnn/NavigationContainer {:ref (fn [^js navigation-ref]
+                                        (when navigation-ref
+                                          (rf/dispatch [:routing/set-navigation-ref navigation-ref])
+                                          (.addListener navigation-ref "state" save-root-state)))
+                                 :initialState (when @!root-state (-> @!root-state .-data .-state))}
+     [:> Stack.Navigator
+      [:> Stack.Screen {:name "Home"
+                        :component (fn [props] (r/as-element [home props]))
+                        :options {:title "Example App"}}]
+      [:> Stack.Screen {:name "About"
+                        :component (fn [props] (r/as-element [about props]))
+                        :options {:title "About"}}]]]))
 
 (defn start
   {:dev/after-load true}
@@ -94,4 +103,5 @@
 
 (defn init []
   (rf/dispatch-sync [:initialize-db])
+  (rf/dispatch-sync [:routing/set-current-route "Home"])
   (start))
