@@ -12,6 +12,8 @@
     "eas-build-post-install": "npx shadow-cljs release app"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
     "create-react-class": "^15.7.0",
     "expo": "^48.0.19",
     "expo-cli": "^6.3.8",
@@ -19,6 +21,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "^0.71.8",
+    "react-native-safe-area-context": "4.5.0",
+    "react-native-screens": "~3.20.0",
     "react-native-web": "^0.19.4"
   },
   "devDependencies": {
