@@ -15,3 +15,8 @@
  :navigation/root-state
  (fn [db _]
    (get-in db [:navigation :root-state])))
+
+(rf/reg-sub
+ :timer/remaining-time
+ (fn [db _]
+   (get-in db [:timer :remaining-time])))

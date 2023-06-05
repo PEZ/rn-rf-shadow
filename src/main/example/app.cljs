@@ -18,7 +18,8 @@
 
 (defn home [^js props]
   (r/with-let [counter (rf/subscribe [:get-counter])
-               tap-enabled? (rf/subscribe [:counter-tappable?])]
+               tap-enabled? (rf/subscribe [:counter-tappable?])
+               remaining-time (rf/subscribe [:timer/remaining-time])]
     [:> rn/View {:style {:flex 1
                          :padding-vertical 50
                          :justify-content :space-between
@@ -35,9 +36,12 @@
        "Tap me, I'll count"]]
      [:> rn-cct/CountdownCircleTimer {:isPlaying true
                                       :duration 60
+                                      :initialRemainingTime @remaining-time
                                       :colors ["#004777" "#F7B801" "#A30000" "#A30000"]
-                                      :colorsTime [7 5 2 0]}
-      (fn [remaining]
+                                      :colorsTime [7 5 2 0]
+                                      :onUpdate (fn [remaining]
+                                                  (rf/dispatch [:timer/remaining-time remaining]))}
+      (fn [^js remaining]
         (r/as-element [:> rn/Text {:style {:font-weight :bold
                                            :font-size   24
                                            :color       :blue}}
@@ -64,7 +68,8 @@
 
 (defn- about 
   []
-  (r/with-let [counter (rf/subscribe [:get-counter])]
+  (r/with-let [counter (rf/subscribe [:get-counter])
+               remaining-time (rf/subscribe [:timer/remaining-time])]
     [:> rn/View {:style {:flex 1
                          :padding-vertical 50
                          :padding-horizontal 20
@@ -82,6 +87,11 @@
                            :color         :blue
                            :margin-bottom 20}}
        (str "Counter is at: " @counter)]
+      [:> rn/Text {:style {:font-weight   :bold
+                           :font-size     20
+                           :color         :blue
+                           :margin-bottom 20}}
+       (str "Remaining tome: " @remaining-time)]
       [:> rn/Text {:style {:font-weight :normal
                            :font-size   15
                            :color       :blue}}
@@ -113,4 +123,5 @@
 
 (defn init []
   (rf/dispatch-sync [:initialize-db])
+  (rf/dispatch [:timer/remaining-time 60])
   (start))
