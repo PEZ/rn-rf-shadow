@@ -8,7 +8,8 @@
             ["react-native" :as rn]
             [reagent.core :as r]
             ["@react-navigation/native" :as rnn]
-            ["@react-navigation/native-stack" :as rnn-stack]))
+            ["@react-navigation/native-stack" :as rnn-stack]
+            ["react-native-countdown-circle-timer" :as rn-cct]))
 
 (defonce shadow-splash (js/require "../assets/shadow-cljs.png"))
 (defonce cljs-splash (js/require "../assets/cljs.png"))
@@ -32,6 +33,15 @@
                :disabled? (not @tap-enabled?)
                :style {:background-color :blue}}
        "Tap me, I'll count"]]
+     [:> rn-cct/CountdownCircleTimer {:isPlaying true
+                                      :duration 60
+                                      :colors ["#004777" "#F7B801" "#A30000" "#A30000"]
+                                      :colorsTime [7 5 2 0]}
+      (fn [remaining]
+        (r/as-element [:> rn/Text {:style {:font-weight :bold
+                                           :font-size   24
+                                           :color       :blue}}
+                       (.-remainingTime remaining)]))]
      [:> rn/View {:style {:align-items :center}}
       [button {:on-press (fn []
                            (-> props .-navigation (.navigate "About")))}
