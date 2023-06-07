@@ -34,13 +34,13 @@
                :disabled? (not @tap-enabled?)
                :style {:background-color :blue}}
        "Tap me, I'll count"]]
-     [:> rn-cct/CountdownCircleTimer {:isPlaying true
+     [:> rn-cct/CountdownCircleTimer {:is-playing true
                                       :duration 60
-                                      :initialRemainingTime @remaining-time
+                                      :initial-remaining-time @remaining-time
                                       :colors ["#004777" "#F7B801" "#A30000" "#A30000"]
-                                      :colorsTime [7 5 2 0]
-                                      :onUpdate (fn [remaining]
-                                                  (rf/dispatch [:timer/remaining-time remaining]))}
+                                      :colors-time [7 5 2 0]
+                                      :on-update (fn [remaining]
+                                                   (rf/dispatch [:timer/remaining-time remaining]))}
       (fn [^js remaining]
         (r/as-element [:> rn/Text {:style {:font-weight :bold
                                            :font-size   24
