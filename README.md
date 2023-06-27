@@ -148,6 +148,13 @@ You will need to disable **Fast Refresh** provided by the Expo client, which con
 
 For the iOS and Android there is a **Disable Fast Refresh** option in the [development menu](https://docs.expo.io/workflow/debugging/#developer-menu). NB: _Often you need to first enable it and then disable it._
 
+For web there may be some way to disable it via a `webpack.config` file as per [this example](https://docs.expo.dev/guides/customizing-webpack/#example). But failing that, once the app has loaded you can block requests to/from `localhost:19006/*` (the Webpack dev server) in devtools [like so](https://github.com/facebook/create-react-app/issues/2519#issuecomment-318867289), for instance by right-clicking on a request in the Network tab, selecting `Block request URL`, then editing the pattern. In Chrome this looks something like:
+
+![image](https://github.com/CarnunMP/rn-rf-shadow/assets/8897392/4d5d9541-f5e4-4108-a38e-65b3c2da4939)
+![image](https://github.com/CarnunMP/rn-rf-shadow/assets/8897392/27c94aa8-3337-4fde-b7f6-7ce87197a89d)
+
+This workaround is far from ideal, because the block needs to be manually toggled *off* whenever a full refresh is required (e.g. to load a new file), then back on again. But it seems to do the job.
+
 ## Production builds
 
 A production build involves first asking shadow-cljs to build a release, then to ask Expo to work in Production Mode.
