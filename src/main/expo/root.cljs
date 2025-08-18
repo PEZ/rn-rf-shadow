@@ -9,6 +9,9 @@
 (defn render-root [root]
   (let [first-call? (nil? @root-ref)]
     (reset! root-ref root)
+    
+    ;; Hot reload disabling is now handled in index.js before app loads
+    ;; This ensures it happens before any Metro/Expo code initializes
 
     (if-not first-call?
       (when-let [root @root-component-ref]
