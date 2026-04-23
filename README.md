@@ -1,3 +1,5 @@
+**Looking for maintainers.** I am no longer using React Native for work or for any open source things. I haven't for quite a long time and am not giving this template the attention it needs. If you are using RN with ClojureScript and want to help the community with keeping this quick starter up to date, please contact me where you find Clojurians.
+
 # React Native using shadow-cljs in 3 minutes
 
 The fastest way a [ClojureScript](https://clojurescript.org/) coder can get started with React Native development. *Prove me wrong.*
